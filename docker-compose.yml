@@ -79,8 +79,8 @@ services:
     networks:
       - elk
 
-  execution:
-    image: execution
+  algorithms:
+    image: algorithms
     ports:
       - "8881:8881"
     environment:
@@ -90,11 +90,11 @@ services:
       - type: bind
         source: ./execution/application-dev.yml
         target: /app/resources/application-dev.yml
-        read_only: true
+        read_only: false
       - type: bind
         source: ./execution/logback-spring.xml
         target: /app/resources/logback-spring.xml
-        read_only: true
+        read_only: false
     networks:
       - elk
 
@@ -109,11 +109,11 @@ services:
       - type: bind
         source: ./analytics/application-dev.yml
         target: /app/resources/application-dev.yml
-        read_only: true
+        read_only: false
       - type: bind
         source: ./analytics/logback-spring.xml
         target: /app/resources/logback-spring.xml
-        read_only: true
+        read_only: false
     networks:
       - elk
 
